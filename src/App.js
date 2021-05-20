@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Input from './components/Input';
-import Button from './components/Button';
+// import Button from './components/Button';
+import ResultsList from './components/ResultsList';
 
-const App = () => {
-  const [inputValue, setInputValue] = useState('');
+const App = ({ searchValue, onSearchChange, results }) => {
   return (
     <div>
-      <Input value={inputValue} onChange={setInputValue} placeholder="Type something..."></Input>
-      <Button onClick={() => console.log('click')}>Search</Button>
+      <Input value={searchValue} onChange={onSearchChange} placeholder="Type something..."></Input>
+      {/* <Button onClick={() => console.log('click')}>Search</Button> */}
+      <ResultsList values={results}></ResultsList>
     </div>
   );
 }
