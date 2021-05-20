@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import App from './App';
-import { searchGroceries } from './services/GroceriesService';
+import HomePage from './HomePage';
+import { searchGroceries } from '../../services/GroceriesService';
 
-const AppContainer = () => {
+const HomePageContainer = () => {
     const [searchValue, setSearchValue] = useState('');
     const [results, setResults] = useState([]);
 
@@ -13,12 +13,12 @@ const AppContainer = () => {
     }
     
     return (
-        <App
+        <HomePage
             searchValue={searchValue}
             onSearchChange={onSearchChange}
             results={results}
-        ></App>
+        ></HomePage>
     );
 };
 
-export default AppContainer;
+export default HomePageContainer;

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Button from '../../Button';
 import '../../../typedefs';
 import '../ResultsList.scss';
@@ -13,9 +14,9 @@ import '../ResultsList.scss';
 const ResultItem = ({ value }) => (
     <li className="results-list-item">
         <span>{value.name}</span>
-        <a className="results-list-item__link" href={`/details/${value.id}`}>
+        <Link className="results-list-item__link" to={`/details/${value.id}`}>
             <Button className="results-list-item__button">View Details</Button>
-        </a>
+        </Link>
     </li>
 );
 
