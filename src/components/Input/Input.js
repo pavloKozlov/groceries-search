@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Input.scss';
+import './input.scss';
 import withValueOnChange from '../../hoc/withValueOnChange';
 
 /**

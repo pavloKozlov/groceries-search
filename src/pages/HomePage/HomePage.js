@@ -19,13 +19,18 @@ import './homePage.scss';
 const HomePage = ({ searchValue, isLoading, onSearchChange, results }) => {
   return (
     <div className="home-page">
-      <Input
-        value={searchValue}
-        onChange={onSearchChange}
-        placeholder="Type here..."
-        disabled={isLoading}
-        className="home-page__search-input"
-      ></Input>
+      <div className="home-page__search-container">
+        <Input
+          value={searchValue}
+          onChange={onSearchChange}
+          placeholder="Type here..."
+          disabled={isLoading}
+          className="home-page__search-input"
+        ></Input>
+        {
+          isLoading && <LoadingOverflow />
+        }
+      </div>
       {/* <Button onClick={() => console.log('click')}>Search</Button> */}
       <div className="home-page-results__container">
         {
@@ -34,9 +39,6 @@ const HomePage = ({ searchValue, isLoading, onSearchChange, results }) => {
             <span className="home-page-results__empty">Type something in</span>
         }
       </div>
-      {
-        isLoading && <LoadingOverflow />
-      }
     </div>
   );
 };
