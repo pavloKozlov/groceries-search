@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Input from '../../components/Input';
 import ResultsList from '../../components/ResultsList';
+import '../../types/typedefs';
 import { groceryItemPropTypes } from '../../types/propTypes';
 import './HomePage.scss';
 
@@ -11,7 +12,7 @@ import './HomePage.scss';
  * @param {object} params - The react component parameters.
  * @param {string} params.searchValue - The current search string.
  * @param {object} params.onSearchChange - The on change handler for search input.
- * @param {object[]} params.results - The list of search results.
+ * @param {GroceryItem[]} params.results - The list of search results.
  */
 const HomePage = ({ searchValue, onSearchChange, results }) => {
   return (

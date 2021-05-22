@@ -1,6 +1,6 @@
 import data from '../assets/groceries.json';
 import { resolveWithDelay, getRandomTime } from '../utils/timeUtils';
-import '../typedefs';
+import '../types/typedefs';
 
 /**
  * Get the list of groceries that matches search string.

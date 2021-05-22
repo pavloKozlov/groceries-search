@@ -1,6 +1,7 @@
 import React from 'react';
 import AdditionalInformation from '../../components/AdditionalInformation';
 import ImagesGallery from '../../components/ImagesGallery';
+import '../../types/typedefs';
 import { groceryItemPropTypes } from '../../types/propTypes';
 import './DetailsPage.scss';
 
@@ -8,7 +9,7 @@ import './DetailsPage.scss';
  * Component that renders details page.
  * 
  * @param {object} params - The react component parameters.
- * @param {object} params.details - The details object.
+ * @param {GroceryItem} params.details - The details object.
  */
 const DetailsPage = ({ details }) => (
     <div className="details-page">
