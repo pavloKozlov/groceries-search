@@ -19,6 +19,12 @@ const HomePageContainer = ({ location }) => {
      * Call searchGroceries with debounce while it's being exectued set isLoading flag to true.
      */
     const debouncedSearchGroceries = useDebounce((value) => {
+        if (value === '') {
+            // don't fetch data for empty value. Set empty results immediatelly instead
+            setResults([]);
+            setQueryStr(value);
+            return;
+        }
         setIsLoading(true);
         searchGroceries(value)
             .then((values) => {
