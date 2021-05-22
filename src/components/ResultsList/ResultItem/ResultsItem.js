@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../Button';
 import { groceryItemPropTypes } from '../../../types/propTypes';
 import '../../../types/typedefs';
-import '../ResultsList.scss';
+import '../resultsList.scss';
 
 /**
  * Component that renders grocery item.

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ResultItem from './ResultItem/ResultsItem';
 import '../../types/typedefs';
 import { groceryItemPropTypes } from '../../types/propTypes';
-import './ResultsList.scss';
+import './resultsList.scss';
 
 /**
  * Component that renders grocery items list.

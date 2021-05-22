@@ -4,7 +4,7 @@ import Input from '../../components/Input';
 import ResultsList from '../../components/ResultsList';
 import '../../types/typedefs';
 import { groceryItemPropTypes } from '../../types/propTypes';
-import './HomePage.scss';
+import './homePage.scss';
 
 /**
  * Component that renders home page.

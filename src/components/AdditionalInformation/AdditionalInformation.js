@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './AdditionalInformation.scss';
+import './additionalInformation.scss';
 
 /**
  * Component that renders additional information.

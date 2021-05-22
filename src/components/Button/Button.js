@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Button.scss';
+import './button.scss';
 
 /**
  * Button component.
@@ -25,7 +25,6 @@ Button.propTypes = {
 
 Button.defaultProps = {
     disabled: false,
-    className: '',
 };
 
 export default Button;

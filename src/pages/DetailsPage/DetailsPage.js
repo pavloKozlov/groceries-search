@@ -3,7 +3,7 @@ import AdditionalInformation from '../../components/AdditionalInformation';
 import ImagesGallery from '../../components/ImagesGallery';
 import '../../types/typedefs';
 import { groceryItemPropTypes } from '../../types/propTypes';
-import './DetailsPage.scss';
+import './detailsPage.scss';
 
 /**
  * Component that renders details page.
