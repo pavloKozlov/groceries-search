@@ -18,7 +18,28 @@ const resolveWithDelay = (delay, result) =>
  */
 const getRandomTime = (max = 3000) => Math.random() * max;
 
+
+/**
+ * Creates a debounced function that delays invoking callback until there are no new invocation during last `delay` miliseconds.
+ * 
+ * @param {Function} fn - The callback function that will be called.
+ * @param {number} delay - The delay in miliseconds.
+ */
+const debounce = (fn, delay) => {
+    let timer;
+    return (...args) => {
+        if (timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+            timer = null;
+            fn.apply(null, args);
+        }, delay);
+    }
+}
+
 export {
     resolveWithDelay,
     getRandomTime,
+    debounce,
 };
