@@ -1,0 +1,11 @@
+.images-list {
+    display: flex;
+    flex-wrap: wrap;
+    
+    &__img {
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+        object-fit: contain;
+    }
+}
