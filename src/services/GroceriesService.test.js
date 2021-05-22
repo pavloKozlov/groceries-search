@@ -19,7 +19,16 @@ describe('GroceriesService', () => {
 
         it('should resolve promise with the list groceries that contains search string in the name', () => {
             const searchStr = 'berrie';
-            const expectedResult = groceries.filter((value) => value.name.includes(searchStr))
+            const expectedResult = [groceries[2], groceries[4], groceries[5]];
+            return searchGroceries(searchStr)
+                .then((data) => {
+                    expect(data).toEqual(expectedResult);
+                });
+        });
+
+        it('should resolve promise with the list groceries that contains search string in the name case insensitive', () => {
+            const searchStr = 'kuMq';
+            const expectedResult = [groceries[8]]
             return searchGroceries(searchStr)
                 .then((data) => {
                     expect(data).toEqual(expectedResult);

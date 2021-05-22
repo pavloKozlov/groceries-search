@@ -9,7 +9,8 @@ import '../typedefs';
  * @return {Promise<GroceryItem>} A promise with a list of grocery items that match search string.
  */
 const searchGroceries = (searchStr) => {
-    const result = data.filter((value) => value.name.includes(searchStr));
+    const lowerSearchStr = searchStr.toLowerCase();
+    const result = data.filter((value) => value.name.toLowerCase().includes(lowerSearchStr));
     return resolveWithDelay(getRandomTime(2000), result);
 }
 
