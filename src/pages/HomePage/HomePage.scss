@@ -1,8 +1,10 @@
+@import '../../styles/colors.scss';
+
 .home-page {
     
     .home-page-results {
         &__container {
-            border: 1px solid #dedede;
+            border: 1px solid $grey;
             padding: 10px;
         }
 

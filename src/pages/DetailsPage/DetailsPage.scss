@@ -1,0 +1,10 @@
+@import '../../styles/colors.scss';
+
+.details-page {
+    &__hr {
+        margin: 5px 0;
+        height: 2px;
+        background:
+            repeating-linear-gradient(to right, $grey 0, $grey 10px, transparent 10px, transparent 15px);
+    }
+}
