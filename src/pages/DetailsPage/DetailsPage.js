@@ -1,6 +1,7 @@
 import React from 'react';
 import AdditionalInformation from '../../components/AdditionalInformation';
 import ImagesGallery from '../../components/ImagesGallery';
+import { groceryItemPropTypes } from '../../types/propTypes';
 import './DetailsPage.scss';
 
 /**
@@ -22,5 +23,9 @@ const DetailsPage = ({ details }) => (
         }
     </div>
 );
+
+DetailsPage.propTypes = {
+    details: groceryItemPropTypes,
+};
 
 export default DetailsPage;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ResultItem from './ResultItem/ResultsItem';
 import '../../typedefs';
+import { groceryItemPropTypes } from '../../types/propTypes';
 import './ResultsList.scss';
 
 /**
@@ -21,7 +22,7 @@ const ResultsList = ({ values }) => (
 );
 
 ResultsList.propTypes = {
-    values: PropTypes.arrayOf(ResultItem.propTypes.value),
+    values: PropTypes.arrayOf(groceryItemPropTypes),
 };
 
 export default ResultsList;

@@ -1,8 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from '../../components/Input';
 import ResultsList from '../../components/ResultsList';
+import { groceryItemPropTypes } from '../../types/propTypes';
 import './HomePage.scss';
 
+/**
+ * Component that renders home page.
+ * 
+ * @param {object} params - The react component parameters.
+ * @param {string} params.searchValue - The current search string.
+ * @param {object} params.onSearchChange - The on change handler for search input.
+ * @param {object[]} params.results - The list of search results.
+ */
 const HomePage = ({ searchValue, onSearchChange, results }) => {
   return (
     <div className="home-page">
@@ -17,6 +27,12 @@ const HomePage = ({ searchValue, onSearchChange, results }) => {
       </div>
     </div>
   );
+};
+
+HomePage.propTypes = {
+  searchValue: PropTypes.string,
+  onSearchChange: PropTypes.func.isRequired,
+  results: PropTypes.arrayOf(groceryItemPropTypes),
 }
 
 export default HomePage;

@@ -1,6 +1,10 @@
 @import '../../styles/colors.scss';
 
 .details-page {
+    > h1 {
+        text-align: center;
+    }
+    
     &__hr {
         margin: 5px 0;
         height: 2px;

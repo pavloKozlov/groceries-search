@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Button from '../../Button';
+import { groceryItemPropTypes } from '../../../types/propTypes';
 import '../../../typedefs';
 import '../ResultsList.scss';
 
@@ -21,9 +21,7 @@ const ResultItem = ({ value }) => (
 );
 
 ResultItem.propTypes = {
-    value: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-    })
+    value: groceryItemPropTypes,
 };
 
 export default ResultItem;

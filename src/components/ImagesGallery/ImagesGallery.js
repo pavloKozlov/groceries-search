@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './ImagesGallery.scss';
 
 /**
- * Component that displays the list of images.
+ * Component that renders the list of images.
  * 
  * @param {object} params - The react component parameters.
  * @param {string[]} params.values - The list of image urls. 
