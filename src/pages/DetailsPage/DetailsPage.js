@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AdditionalInformation from '../../components/AdditionalInformation';
 import ImagesGallery from '../../components/ImagesGallery';
 import '../../types/typedefs';
 import { groceryItemPropTypes } from '../../types/propTypes';
+import LoadingOverflow from '../../components/LoadingOverflow';
 import './detailsPage.scss';
 
 /**
@@ -10,8 +12,9 @@ import './detailsPage.scss';
  * 
  * @param {object} params - The react component parameters.
  * @param {GroceryItem} params.details - The details object.
+ * @param {boolean} params.isLoading - The flag that reflects loading state.
  */
-const DetailsPage = ({ details }) => (
+const DetailsPage = ({ details, isLoading }) => (
     <div className="details-page">
         <h1>{details.name}</h1>
         <p>{details.description}</p>
@@ -22,11 +25,19 @@ const DetailsPage = ({ details }) => (
         {
             details.images && <ImagesGallery values={details.images} />
         }
+        {
+            isLoading && <LoadingOverflow />
+        }
     </div>
 );
 
 DetailsPage.propTypes = {
     details: groceryItemPropTypes,
+    isLoading: PropTypes.bool,
+};
+
+DetailsPage.defaultProps = {
+    isLoading: false,
 };
 
 export default DetailsPage;

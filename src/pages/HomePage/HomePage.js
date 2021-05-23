@@ -12,8 +12,8 @@ import './homePage.scss';
  * 
  * @param {object} params - The react component parameters.
  * @param {string} params.searchValue - The current search string.
- * @param {string} params.isLoading - The flag that reflects loading state.
- * @param {object} params.onSearchChange - The on change handler for search input.
+ * @param {boolean} params.isLoading - The flag that reflects loading state.
+ * @param {function} params.onSearchChange - The on change handler for search input.
  * @param {GroceryItem[]} params.results - The list of search results.
  */
 const HomePage = ({ searchValue, isLoading, onSearchChange, results }) => {

@@ -8,15 +8,18 @@ import { getGroceryById } from '../../services/GroceriesService';
  */
 const DetailsPageContainer = () => {
     const [details, setDetails] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
     const { id } = useParams();
 
     useEffect(() => {
+        setIsLoading(true);
         getGroceryById(id)
-            .then((result) => setDetails(result));
+            .then((result) => setDetails(result))
+            .finally(() => setIsLoading(false));
     }, [id]);
 
     return (
-        <DetailsPage details={details} />
+        <DetailsPage details={details} isLoading={isLoading} />
     )
 };
 
