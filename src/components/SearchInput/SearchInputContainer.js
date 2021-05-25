@@ -33,6 +33,7 @@ const SearchInputContainer = ({ initialValue, isLoading, onChange }) => {
     return (
         <SearchInput
             value={inputValue}
+            isLoading={isLoading}
             onChange={onValueChange}
         />
     )

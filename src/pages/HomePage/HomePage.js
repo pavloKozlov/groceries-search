@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ResultsList from '../../components/ResultsList';
-import LoadingOverflow from '../../components/LoadingOverflow';
 import SearchInput from '../../components/SearchInput';
 import '../../types/typedefs';
 import { groceryItemPropTypes } from '../../types/propTypes';
@@ -26,9 +25,6 @@ const HomePage = ({ initialSearchValue, isSearchEmpty, isLoading, onSearchChange
           isLoading={isLoading}
           onChange={onSearchChange}
         />
-        {
-          isLoading && <LoadingOverflow />
-        }
       </div>
       {/* <Button onClick={() => console.log('click')}>Search</Button> */}
       <div className="home-page-results__container">

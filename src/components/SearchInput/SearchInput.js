@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LoadingOverflow from '../../components/LoadingOverflow';
 import Input from '../Input';
 import './searchInput.scss';
 
@@ -10,7 +11,7 @@ import './searchInput.scss';
  * @param {string} params.value - The input value.
  * @param {function} params.onChange - The onChange handler.
  */
-const SearchInput = ({ value, onChange }) => (
+const SearchInput = ({ value, isLoading, onChange }) => (
     <div className="search-input">
         <Input
             value={value}
@@ -18,6 +19,9 @@ const SearchInput = ({ value, onChange }) => (
             placeholder="Type here..."
             className="search-input__input"
         ></Input>
+        {
+            isLoading && <LoadingOverflow />
+        }
     </div>
 );
 
