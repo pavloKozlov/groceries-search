@@ -33,6 +33,11 @@ const HomePageContainer = ({ location }) => {
     }, [setIsSearchEmpty]);
 
     useEffect(() => {
+        onSearchChange(initialSearchValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
         const params = new URLSearchParams()
         if (queryStr) {
             // populate current search string to url query params

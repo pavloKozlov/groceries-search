@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import useDebounce from '../../hooks/useDebounce';
 import SearchInput from './SearchInput';
@@ -22,12 +22,11 @@ const SearchInputContainer = ({ initialValue, isLoading, onChange }) => {
     }, 500);
 
     const onValueChange = useCallback((value) => {
-        !isLoading && setInputValue(value);
-    }, [setInputValue, isLoading]);
-
-    useEffect(() => {
-        debouncedSearchGroceries(inputValue);
-    }, [inputValue, debouncedSearchGroceries]);
+        if (!isLoading) {
+            setInputValue(value);
+            debouncedSearchGroceries(value);
+        }
+    }, [isLoading, setInputValue, debouncedSearchGroceries]);
 
     return (
         <SearchInput
