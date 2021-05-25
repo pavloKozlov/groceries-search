@@ -26,7 +26,6 @@ const HomePage = ({ initialSearchValue, isSearchEmpty, isLoading, onSearchChange
           onChange={onSearchChange}
         />
       </div>
-      {/* <Button onClick={() => console.log('click')}>Search</Button> */}
       <div className="home-page-results__container">
         {
           isSearchEmpty ?

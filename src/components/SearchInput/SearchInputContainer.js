@@ -25,7 +25,6 @@ const SearchInputContainer = ({ initialValue, isLoading, onChange }) => {
         !isLoading && setInputValue(value);
     }, [setInputValue, isLoading]);
 
-
     useEffect(() => {
         debouncedSearchGroceries(inputValue);
     }, [inputValue, debouncedSearchGroceries]);

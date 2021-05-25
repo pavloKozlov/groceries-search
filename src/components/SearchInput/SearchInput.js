@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LoadingOverflow from '../../components/LoadingOverflow';
 import Input from '../Input';
+import Button from '../Button';
 import './searchInput.scss';
 
 /**
@@ -19,6 +20,13 @@ const SearchInput = ({ value, isLoading, onChange }) => (
             placeholder="Type here..."
             className="search-input__input"
         ></Input>
+        <Button
+            className="search-input__button"
+            disabled={isLoading}
+            onClick={() => onChange(value)}
+        >
+            Search
+        </Button>
         {
             isLoading && <LoadingOverflow />
         }

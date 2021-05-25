@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import SearchInput from './SearchInput';
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 import LoadingOverflow from '../../components/LoadingOverflow';
 
 const defaultProps = {
@@ -42,6 +43,34 @@ describe('SearchInput', () => {
             input.prop('onChange')(value);
             expect(onChange).toHaveBeenCalledWith(value);
         })
+    });
+
+    describe('search button', () => {
+        const getButton = (wrapper) => wrapper.find(Button);
+        
+        it('should be disabled when isLoading === true', () => {
+            const wrapper = render({isLoading: true});
+
+            const button = getButton(wrapper);
+            expect(button.prop('disabled')).toBe(true);
+        });
+
+        it('should be not disabled when isLoading === false', () => {
+            const wrapper = render();
+
+            const button = getButton(wrapper);
+            expect(button.prop('disabled')).toBe(false);
+        });
+
+        it('should trigger onChange handler with current value as parameter with clicked', () => {
+            const value = 'some value';
+            const onChange = jest.fn();
+            const wrapper = render({value, onChange});
+
+            const button = getButton(wrapper);
+            button.prop('onClick')();
+            expect(onChange).toHaveBeenCalledWith(value);
+        });
     });
 
     describe('loading indicator', () => {
