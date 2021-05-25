@@ -2,23 +2,20 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import HomePage from './HomePage';
 import { searchGroceries } from '../../services/GroceriesService';
-import useDebounce from '../../hooks/useDebounce';
 
 /**
  * The container component for HomePage.
  */
 const HomePageContainer = ({ location }) => {
-    const searchStr = new URLSearchParams(location.search).get('search') || '';
-    const [searchValue, setSearchValue] = useState(searchStr);
+    const initialSearchValue = new URLSearchParams(location.search).get('search') || '';
     const [isLoading, setIsLoading] = useState(false);
+    const [isSearchEmpty, setIsSearchEmpty] = useState(initialSearchValue.length === 0);
     const [results, setResults] = useState([]);
-    const [queryStr, setQueryStr] = useState(searchStr)
+    const [queryStr, setQueryStr] = useState(initialSearchValue)
     const history = useHistory();
 
-    /**
-     * Call searchGroceries with debounce while it's being exectued set isLoading flag to true.
-     */
-    const debouncedSearchGroceries = useDebounce((value) => {
+    const onSearchChange = useCallback((value) => {
+        setIsSearchEmpty(value.length === 0);
         if (value === '') {
             // don't fetch data for empty value. Set empty results immediatelly instead
             setResults([]);
@@ -33,15 +30,7 @@ const HomePageContainer = ({ location }) => {
             })
             .catch(() => {/* do soemthing */ })
             .finally(() => setIsLoading(false))
-    }, 300);
-
-    const onSearchChange = useCallback((value) => {
-        !isLoading && setSearchValue(value);
-    }, [setSearchValue, isLoading]);
-
-    useEffect(() => {
-        debouncedSearchGroceries(searchValue);
-    }, [searchValue, debouncedSearchGroceries]);
+    }, [setIsSearchEmpty]);
 
     useEffect(() => {
         const params = new URLSearchParams()
@@ -54,7 +43,8 @@ const HomePageContainer = ({ location }) => {
 
     return (
         <HomePage
-            searchValue={searchValue}
+            initialSearchValue={initialSearchValue}
+            isSearchEmpty={isSearchEmpty}
             isLoading={isLoading}
             onSearchChange={onSearchChange}
             results={results}

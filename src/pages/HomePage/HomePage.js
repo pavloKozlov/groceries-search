@@ -1,32 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from '../../components/Input';
 import ResultsList from '../../components/ResultsList';
+import LoadingOverflow from '../../components/LoadingOverflow';
+import SearchInput from '../../components/SearchInput';
 import '../../types/typedefs';
 import { groceryItemPropTypes } from '../../types/propTypes';
-import LoadingOverflow from '../../components/LoadingOverflow';
 import './homePage.scss';
 
 /**
  * Component that renders home page.
  * 
  * @param {object} params - The react component parameters.
- * @param {string} params.searchValue - The current search string.
+ * @param {string} params.initialSearchValue - The initial value for search input.
+ * @param {boolean} params.isSearchEmpty - The flag that reflects if the search input is empty.
  * @param {boolean} params.isLoading - The flag that reflects loading state.
  * @param {function} params.onSearchChange - The on change handler for search input.
  * @param {GroceryItem[]} params.results - The list of search results.
  */
-const HomePage = ({ searchValue, isLoading, onSearchChange, results }) => {
+const HomePage = ({ initialSearchValue, isSearchEmpty, isLoading, onSearchChange, results }) => {
   return (
     <div className="home-page">
       <div className="home-page__search-container">
-        <Input
-          value={searchValue}
+        <SearchInput 
+          initialValue={initialSearchValue}
+          isLoading={isLoading}
           onChange={onSearchChange}
-          placeholder="Type here..."
-          disabled={isLoading}
-          className="home-page__search-input"
-        ></Input>
+        />
         {
           isLoading && <LoadingOverflow />
         }
@@ -34,9 +33,9 @@ const HomePage = ({ searchValue, isLoading, onSearchChange, results }) => {
       {/* <Button onClick={() => console.log('click')}>Search</Button> */}
       <div className="home-page-results__container">
         {
-          searchValue.length > 0 ?
-            <ResultsList values={results}></ResultsList> :
-            <span className="home-page-results__empty">Type something in</span>
+          isSearchEmpty ?
+            <span className="home-page-results__empty">Type something in</span> :
+            <ResultsList values={results}></ResultsList>
         }
       </div>
     </div>
@@ -44,7 +43,8 @@ const HomePage = ({ searchValue, isLoading, onSearchChange, results }) => {
 };
 
 HomePage.propTypes = {
-  searchValue: PropTypes.string,
+  initialSearchValue: PropTypes.string,
+  isSearchEmpty: PropTypes.bool,
   isLoading: PropTypes.bool,
   onSearchChange: PropTypes.func.isRequired,
   results: PropTypes.arrayOf(groceryItemPropTypes),
