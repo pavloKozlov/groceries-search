@@ -10,19 +10,26 @@ import './resultsList.scss';
  * 
  * @param {object} params - The react component parameters.
  * @param {GroceryItem[]} params.values - The list of grocery items.
+ * @param {string} params.emptyMessage - The message to be displayed when there are no values.
  */
-const ResultsList = ({ values }) => (
-    <ul className="results-list">
+const ResultsList = ({ values, emptyMessage }) => (
+    <div className="results-list">
+        <ul className="results-list__list">
+            {
+                values.map((value) => (
+                    <ResultItem key={value.id} value={value}></ResultItem>
+                ))
+            }
+        </ul>
         {
-            values.map((value) => (
-                <ResultItem key={value.id} value={value}></ResultItem>
-            ))
+            values.length === 0 && <span className="results-list__empty">{emptyMessage}</span>
         }
-    </ul>
+    </div>
 );
 
 ResultsList.propTypes = {
     values: PropTypes.arrayOf(groceryItemPropTypes),
+    emptyMessage: PropTypes.string,
 };
 
 export default ResultsList;

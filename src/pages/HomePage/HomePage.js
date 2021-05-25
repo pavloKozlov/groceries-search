@@ -27,11 +27,10 @@ const HomePage = ({ initialSearchValue, isSearchEmpty, isLoading, onSearchChange
         />
       </div>
       <div className="home-page-results__container">
-        {
-          isSearchEmpty ?
-            <span className="home-page-results__empty">Type something in</span> :
-            <ResultsList values={results}></ResultsList>
-        }
+          <ResultsList
+            values={results}
+            emptyMessage={isSearchEmpty ? 'Type something in' : 'No results'}
+          ></ResultsList>
       </div>
     </div>
   );

@@ -1,6 +1,14 @@
 .results-list {
-    padding: 0;
-    margin: 0;
+    &__list {
+        padding: 0;
+        margin: 0;
+    }
+
+    &__empty {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .results-list-item {
